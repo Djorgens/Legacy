@@ -1,0 +1,74 @@
+Map Idea
+                Manor 
+		            --GG
+		            -MGG
+		            CCCC	'Village'
+		            C--C
+	          	  FFFF	Farm
+	          	  FFFF 
+	          	  FFFF 
+		            FFFF
+~~~~~~~~~~~~~~~~~~~+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    FFFFmoGGFFFFHmp-`	Market Town                   ~~~~~~~~~~~~~~~~~~~
+    FFFFGG--FFFF----`				      
+    FFFFCC--FFFF----`				     
+    FFFF----FFFF--H-`				      
+```````````````````+`
+	                 +
+		               +
+
+Economic Card Idea
+
+   # add the individual card on a line by line basis
+  lines[0].append('    {Name} Card  '.format(name))
+  lines[0].append('┌───────────────┐')
+  lines[1].append('│{}{}           │'.format(rank, space))  
+  lines[2].append('│               │')
+  lines[3].append('│               │')
+  lines[4].append('│    {}         │'.format(suit))
+  lines[5].append('│               │')
+  lines[6].append('│               │')
+  lines[7].append('│           {}{}│'.format(space, rank))
+  lines[8].append('└───────────────┘')
+  lines[8].append('Cost:{}          '.format(cost))
+
+  lines[0].append('     Number      ')  
+  lines[0].append('       1         ')  
+  lines[0].append('┌───────────────┐')
+  lines[1].append('│  Lv. 1 Serf   │'.format(rank, space)) //Job
+  lines[2].append('│    HP: 55     │') //faction
+  lines[3].append('│    Feudal     │') //class
+  lines[4].append('│               │'.format(suit))
+  lines[5].append('│               │')
+  lines[6].append('│Upk: 1b,       │')
+  lines[7].append('│A: 4       D:0 │'.format(space, rank))
+  lines[8].append('└───────────────┘')
+  lines[8].append('Equipment: Herb  '.format(cost))
+  lines[8].append('Gardener, Farmer '.format(cost))
+
+
+  #-----Name-----Cost-----Influence-----Upkeep-------
+  1. Hire Serf----(2 wheat)---(N/A)----0.75 bread
+  2. Hire Serf----(2 ducats)--(1)------0.75 bread
+  3. Hire Monk----(2 ducats)--(1)------0.75 bread, 0.5 ducats
+  4. Hire Peasant-(2 ducats)--(0.5)----0.75 bread, 0.5 ducats
+  5. Hire Merchant(4 ducats)--(2)------2 ducats
+  6. Reroll       (2 ducats)
+  7. Freeze
+  8. Next Turn
+
+  Type 'details #' for more details || shortcut: d# || example: details 1, d1
+  > details 1                               (user input)
+  > Traits: (2) Gardener and (1) Farmer
+  > Household: Cottage 
+  > Faction: Yours
+  > Gardener: +1 Herb
+  > Abilities: use_herb()
+  > Farmer: +5 Hp
+  > Type the name of an item to receive extra details || example: Herb
+  > Type the name of an ability to receive extra details  || example: use_herb(), R1_Heal
+  > -------------------------------------------------------------------------
+  > use_herb()
+  > Name: Use_Herb()
+  > Ability: Consumes a herb to heal for 5 hp. Ends Turn. 

@@ -35,6 +35,14 @@ void Game:: run(){
 };
 
 //----------------------------------------------//
+//-------------General Methods------------------//
+//----------------------------------------------//
+
+void Game::NewLine(){
+  std::cout << std::endl;
+};
+
+//----------------------------------------------//
 //-----------Welcome() Methods------------------//
 //---------------------------------------------//
 
@@ -57,7 +65,8 @@ void Game::Welcome(){
 
       if (response == 1) {
         welcome_state = false;
-        std::cout << "Response One" << std::endl;
+        Start_Game();
+        // std::cout << "Response One" << std::endl; -- debugging message
       }
 
       if (response == 2) {
@@ -99,9 +108,15 @@ std::string Game::Get_User_Input(){
 };
 
 //----------------------------------------------//
-//-------------General Methods------------------//
-//----------------------------------------------//
+//-----------Start_Game() Methods---------------//
+//---------------------------------------------//
 
-void Game::NewLine(){
-  std::cout << std::endl;
-};
+void Game::Start_Game(){
+  bool valid_option = false;
+  std::cout << ">> Start Game" << std::endl;
+  std::ifstream file ("ASCII Database/StartGame.txt");
+  if (file.is_open())
+  std::cout << file.rdbuf(); 
+
+
+}

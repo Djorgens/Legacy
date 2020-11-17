@@ -7,9 +7,9 @@ int main()
 {
 	srand(time(NULL));
 	Game game;
-  
-	game.run();
 
+	game.run();
   return 0;
+  
 }
 

@@ -16,6 +16,8 @@ private:
 	bool playing;
   bool welcome_state = true;
   std::string user_input;
+  std::string County_Name = "CountyName";
+  std::string Player_Name = "Player";
 public:
 	Game();
 	virtual ~Game();

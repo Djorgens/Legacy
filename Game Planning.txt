@@ -72,3 +72,10 @@ Economic Card Idea
   > use_herb()
   > Name: Use_Herb()
   > Ability: Consumes a herb to heal for 5 hp. Ends Turn. 
+
+  -----------------------------------------------------------------------------------------
+
+  The Feudal Contract
+
+  std::cout << "The Kantorian Empire hereby grants the colony of " << County_Name <<" to"
+  << Player_Name << ". std::endl;

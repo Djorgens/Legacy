@@ -4,12 +4,15 @@
 #include <algorithm>
 
 
+
 //----------------------------------------------//
 //---------------------Lists--------------------//
 //----------------------------------------------//
 
 std::list<std::string> input_all_ints = {"one","1","OnE","ONE","[1]","uno","oNE",
 "two","2","twO","TWO","[2]","deux","tWO"};
+std::list<std::string> input_arrows = {"<",">","back","forward","BACK","FORWARD"};
+
 
 std::string input_one[7] = {"one","1","OnE","ONE","[1]","uno","oNE"};
 int input_one_size = 7; //change this if you change the list above, code depends on it
@@ -42,6 +45,28 @@ void Game::NewLine(){
   std::cout << std::endl;
 };
 
+bool Game::IsValidIntResponse(){
+  std::list<std::string>::iterator iter;
+  iter = std::find(input_all_ints.begin(), input_all_ints.end(), user_input);
+  if(iter != input_all_ints.end()) {
+    // std::cout << "made it here"; -- debugging message
+    return 1;
+   }
+  else {return 0;}
+  //std::cout << "checking input"; -- debugging message
+};
+
+bool Game::IsValidArrowResponse(){
+  std::list<std::string>::iterator iter;
+  iter = std::find(input_arrows.begin(), input_arrows.end(), user_input);
+  if(iter != input_arrows.end()) {
+    // std::cout << "made it here"; //--  debugging message
+    return 1;
+   }
+  else {return 0;}
+  //std::cout << "checking input"; //-- debugging message
+};
+
 //----------------------------------------------//
 //-----------Welcome() Methods------------------//
 //---------------------------------------------//
@@ -51,7 +76,7 @@ void Game::Initialize(){
 }
 
 void Game::Welcome(){
-  bool valid_option = false;
+  bool welcome_state = true;
   std::ifstream file ("ASCII Database/Welcome.txt");
   if (file.is_open())
   std::cout << file.rdbuf(); 
@@ -74,11 +99,10 @@ void Game::Welcome(){
   << "and Bishop Tyriel to\n" << Player_Name << ", along with all current crown lands.";
 
   while (welcome_state) {
-    int response;
     user_input = Get_User_Input();
 
-    if(IsValidIntResponse()){
-      response = GetResponseAsInt();
+    if (IsValidIntResponse()) {
+      int response = GetResponseAsInt();
 
       if (response == 1) {
         welcome_state = false;
@@ -94,16 +118,7 @@ void Game::Welcome(){
   }
 };
 
-bool Game::IsValidIntResponse(){
-  std::list<std::string>::iterator iter;
-  iter = std::find(input_all_ints.begin(), input_all_ints.end(), user_input);
-  if(iter != input_all_ints.end()) {
-    // std::cout << "made it here"; -- debugging message
-    return 1;
-   }
-  else {return 0;}
-  //std::cout << "checking input"; -- debugging message
-};
+
 
 int Game::GetResponseAsInt(){
   for (int i = 0; i < input_one_size; i++) {
@@ -129,11 +144,58 @@ std::string Game::Get_User_Input(){
 //---------------------------------------------//
 
 void Game::Start_Game(){
-  bool valid_option = false;
+
+  bool start_state = true;
+  
+
   std::cout << ">> Start Game" << std::endl;
   std::ifstream file ("ASCII Database/StartGame.txt");
   if (file.is_open())
   std::cout << file.rdbuf(); 
 
+  while (start_state) {
+    
+    user_input = Get_User_Input();
 
+    if (IsValidIntResponse()) {
+      int response = GetResponseAsInt();
+
+      if (response == 1) {
+        start_state = false;
+        Character_Creation();
+        //std::cout << "Response One" << std::endl; //-- debugging message
+      }
+    }
+  }
+}
+
+
+//----------------------------------------------//
+//-----------Character_Creation() Methods---------------//
+//---------------------------------------------//
+
+void Game::Character_Creation(){
+  bool character_creation = true;
+
+  std::cout << ">> Create Character" << std::endl;
+  std::ifstream file ("ASCII Database/CharacterCreation.txt");
+  if (file.is_open())
+  std::cout << file.rdbuf(); 
+
+  while (character_creation) {
+    
+    user_input = Get_User_Input();
+
+    if (IsValidIntResponse()) {
+      int response = GetResponseAsInt();
+    }
+
+    if (IsValidArrowResponse()) {
+      std::cout << "Arrow Response" << std::endl;
+    }
+
+    else {
+      std::cout << ">> Input Error\nFor arrows, try < or >" << std::endl;
+    }
+  }
 }

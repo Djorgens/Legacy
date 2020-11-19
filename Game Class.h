@@ -14,7 +14,6 @@ class Game
 {
 private:
 	bool playing;
-  bool welcome_state = true;
   std::string user_input;
   std::string County_Name = "CountyName";
   std::string Player_Name = "Player";
@@ -28,6 +27,8 @@ public:
   virtual void Start_Game();
   virtual std::string Get_User_Input();
   virtual bool IsValidIntResponse();
+  virtual bool IsValidArrowResponse();
   virtual int GetResponseAsInt();
+  virtual void Character_Creation();
 
 };

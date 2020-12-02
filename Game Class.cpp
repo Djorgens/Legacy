@@ -171,7 +171,7 @@ void Game::Start_Game(){
 
 
 //----------------------------------------------//
-//-----------Character_Creation() Methods---------------//
+//-------Character_Creation() Methods-----------//
 //---------------------------------------------//
 
 void Game::Character_Creation(){

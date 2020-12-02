@@ -1,15 +1,24 @@
-/*#include "People & Creatures.h"
+#include "People & Creatures.h"
 #include <string>
 
 
-Person::Person(){
-
+Person::Person(std::string name, std::string job, double age, Sex sex){
+  this->name = name; 
+  this->job = job;
+  this->sex = sex;
+  this->age = age;
 }
 
-Person::~Person(){
+ Person::~Person() {};
+  
 
-}
+  // Methods // 
 
-Person::Person(string name, string job, int age, Sex sex){
-    SetName(name); SetJob(job); SetAge(age); SetSex(sex);
-}*/
+ void Person::sleep(double hours){
+    this->slept = true;
+    this->hours += 8;
+  }; 
+  
+  void Person::eat(){};
+  
+

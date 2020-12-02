@@ -2,42 +2,29 @@
 #include <string>
 
 enum Sex {Male, Female};
+enum Job {Serf, Peasant, Farmer};
 
-
-using namespace std;
 
 class Person
 {
 public:
-    string name;
-    string job;
-    double wealth; 
-    string faction;
-    int age; 
-    int productivity;
-    int education;
-    int inheritor;
-    int household;
+    // Constructor // 
+    Person(std::string name, std::string job, double age, Sex sex);
+    virtual ~Person();
+
+    // Variables // 
     Sex sex;
-    int hours;
-    static int numOfPersons; 
-  //--------Getters-------------//
-    string GetName();
-    string GetJob();
-    Sex GetSex();
-    int GetAge();
-    int GetHours();
- //--------Setters-------------//
-    void SetName(string name) {this->name = name;}
-    void SetJob(string job) {this->job = job;}
-    void SetWealth(double wealth) {this->wealth = wealth;}
-    void SetAge(int age) {this->age = age;}
-    void SetSex(Sex sex) {this->sex = sex;}
-    static int GetNumOfPersons() {return numOfPersons;}
+    double age;
+    double hours = 0;
+    std::string job;
+    std::string name;
+    bool slept = false;
 
-  //--------Constructors-------------//
-   Person();
-   ~Person();
-   Person(string name, string job, int age, Sex sex);
-
+    // Methods //
+    virtual void sleep(double hours);
+    virtual void eat();
+    virtual Person* clone() const = 0;
+   
 };
+
+
